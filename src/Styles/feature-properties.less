@@ -1,0 +1,152 @@
+.feature-properties {
+    background-color: #F5F5F5;
+    overflow: hidden;
+    padding-bottom: 40px;
+    .slider-container-mx {
+        .feature-property-item {
+            margin-bottom: 30px;
+            .feature-item-image {
+                position: relative;
+                img {
+                    width: 100%;
+                }
+
+                .image-overlay {
+                    position: absolute;
+                    left: 0px;
+                    padding: 15px;
+                    color: white;
+                    font-family: 'Open Sans';
+                    text-shadow: 1px 1px 1px black;
+                    &.top {
+                        top:0px;
+                        .item-title {
+                            font-weight: 300;
+                            font-size: 20px;
+                        }
+                        .item-address {
+                            font-weight: 400;
+                            font-size: 13px;
+                            line-height: 18px;
+                            
+                        }
+                    }
+                    &.bottom {
+                        bottom:0px;
+                        
+                    }
+                }
+            }
+            .feature-item-details {
+                margin-top: 5px;
+                padding-right: 20px;
+                .view-more-info {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .is-animate {
+        transition: all 0.28s linear;
+    }
+
+    .slider-container {
+        height: 350px;
+        position: relative;
+    }
+    .slider-wrapper {
+        padding: 0 10px;
+        height: 100%;
+        position: relative;
+    }
+    .module-slider {
+        height: 100%;
+        overflow: hidden;
+        //margin: 0 10px;
+        .slider-viewport {
+            height: 100%;
+            overflow: hidden;
+            ._holder {
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+                 ._slider {
+                    float: left;
+                    height: 100%;
+                    .slide-bottom-content {
+                        height: 50px;
+                        margin: 0 10px;
+                    }
+                    .slide-top-content {
+                        margin: 0 10px;
+                        height: calc(~"100% - 50px");
+                        background: linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.45) 100%);
+                        ._slide-image {
+                            height: 100%;
+                            width: 100%;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            background-position: center center;
+                            position: relative;
+                            .image-overlay {
+                                position: absolute;
+                                left: 0px;
+                                padding: 15px;
+                                color: white;
+                                font-family: 'Open Sans';
+                                text-shadow: 1px 1px 1px black;
+                                &.top {
+                                    top:0px;
+                                    .item-title {
+                                        font-weight: 300;
+                                        font-size: 20px;
+                                    }
+                                    .item-address {
+                                        font-weight: 400;
+                                        font-size: 13px;
+                                        line-height: 18px;
+                                        
+                                    }
+                                }
+                                &.bottom {
+                                    bottom:0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 38%;
+            background-color: white;
+            height: 67px;
+            width: 15px;
+            border: 1px solid black;
+            border-radius: 2px;
+            cursor: pointer;
+            .glyphicon  {
+                top: 24px;
+            }
+            &._next {
+                right: 0px;
+            }
+            &._prev {
+                left: 0px;
+            }
+        }
+
+        &.diplay-3 {
+            .slider-viewport {
+               ._holder {
+                   ._slider {
+                       width: 33%;
+                   }
+               }
+            }
+        }
+    }
+}

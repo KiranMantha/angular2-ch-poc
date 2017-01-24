@@ -1,0 +1,63 @@
+<div class="well-search search-result clearfix m20-btm">
+    <div class="col-md-4 col-sm-4 col-xs-12 custom-pad">
+        <img src="{{resultCtrl.data.image}}" class="property-img summary photo type center-cropped" style="display: block;" />
+        <div class="search-quick-view hidden-xs">
+            <a ng-click="resultCtrl.customToggle(resultCtrl.data)" rel="me" data-toggle="collapse" class="collapsed">
+                <span class="glyphicon" ng-class="{'glyphicon-minus' : resultCtrl.data.show, 'glyphicon-plus' : !resultCtrl.data.show}"></span> Quick View
+            </a>
+        </div>
+        <div class="clearfix hidden-md hidden-sm well-sm btm-pad">
+            <div class="col-xs-6 hidden-md hidden-sm">
+                <div class="phoneHeading">
+                    <h4 class="visible-xs phoneHeading tel ">
+                        <span class="type hide">Work</span>
+                        <a href="tel:{{resultCtrl.data.phone}}" class="item-phone mobilePhoneColor no-line value">{{resultCtrl.data.phone}}</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-xs-6 hidden-md hidden-sm">
+                <a class="fn url permalink summary" rel="me">
+                    <p class="text-center-sm">More Info <span class="glyphicon glyphicon-chevron-right"></span></p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-sm-5 hidden-xs">
+        <h3 class="item-sub-title">
+            {{resultCtrl.data.name}}
+        </h3>
+        <div class="adr clearfix">
+            <div class="col-md-12">
+                <p class="text item-title">
+                    <span class="street-address" itemprop="streetAddress">{{resultCtrl.data.address}}</span>
+                </p>
+                <p class="text item-title">
+                    <span class="locality" itemprop="addressLocality">{{resultCtrl.data.city}}</span>,
+                    <span class="region" itemprop="addressRegion">{{resultCtrl.data.county}} </span>
+                    <span class="postal-code" itemprop="postalCode">{{resultCtrl.data.zip}}</span>
+                </p>
+            </div>
+
+            <div class="col-md-12">
+                <div class="spot" ng-repeat="facility in resultCtrl.data.facilities">
+                    <div data-trigger="hover" data-toggle="tooltip" data-placement="top" title="{{facility.name}}" class="blue-tooltip" id="{{facility.id}}">
+                    </div>
+                </div>
+            </div>
+            <ul class="col-md-12" style="list-style-type: circle">
+                <li ng-show="$index <= 1 || ($index > 1 && resultCtrl.data.show)" ng-repeat="feature in resultCtrl.data.listingHighlights">{{feature}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3 hidden-xs">
+        <div class="phoneHeading">
+            <h4 class="tel">
+                <span class="type hide">Work</span>
+                <a id="phonebutton" href="tel:{{resultCtrl.data.phone}}"> {{resultCtrl.data.phone}} </a>
+            </h4>
+        </div>
+        <div class="phoneHeading">
+            <button ng-click="resultCtrl.invokeModal('#resultsModal', resultCtrl.data)" class="btn btn-primary" type="button" id="checkavailability"> Check Availability </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.bread-crumbs {
+    padding: 10px 0px;
+    ul {
+        list-style: none;
+        li {
+            float: left;
+            margin-right: 5px;
+            &:not(:first-child) {
+                margin-left: 15px;
+                &:before {
+                    content: '>';
+                    position: relative;
+                    left: -10px;
+                }
+            }
+            
+        }
+    }
+}

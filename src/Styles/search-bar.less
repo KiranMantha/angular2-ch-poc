@@ -1,0 +1,36 @@
+.search-bar {
+    background-color: #F5F5F5;
+    padding: 10px 0px;
+    .search-form {
+        position: relative;
+        .search-icon-link {
+            position: absolute;
+            top: 4px;
+            right: 10px;
+            font-size: 20px;
+        }
+        .error-msg {
+            color: #a94442;
+            font-size: 12px;
+            
+        }
+        .mk-auto-complete {
+            list-style: none;
+            border: 1px solid #333;
+            position: absolute;
+            width: 100%;
+            background-color: white;
+            z-index: 10;
+            max-height: 200px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            .search-item {
+                padding: 5px 10px;
+                &:hover, &.active {
+                    background-color: #453434;
+                    color: white;
+                }
+            }
+        }
+    }
+}

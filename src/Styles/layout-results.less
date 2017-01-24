@@ -1,0 +1,72 @@
+@left-content-width: 260px;
+@minTablet: 992px;
+.layout-results {
+    .left-content {
+        display: none;
+        @media (min-width: @minTablet) {
+            width: @left-content-width;
+            display: inline-block;
+        }
+        float: left;
+        .border-me {
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
+        .city-info {
+            .city-information-list {
+                .info-item {
+                    .info-heading {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .additional-locations-panel {
+            .heading {
+                background-color: #ddd;
+                cursor: pointer;
+                .glyphicon-plus {
+                    display: none;
+                }
+            }
+            .content-to-collapse {
+                overflow: hidden;
+                ul {
+                    list-style: none;
+                }
+            }
+            &.collapsed {
+                .heading {
+                    .glyphicon-plus {
+                        display: inline;
+                    }
+                    .glyphicon-minus {
+                        display: none;
+                    }
+                }
+                .content-to-collapse {
+                    height: 0px;
+                }
+            }
+        }
+    }
+    .right-content {
+        float: left;
+        width: 100%;
+        @media (min-width: @minTablet) {
+            width: calc(~'100% - @{left-content-width}');
+        }
+        .exact-matches, .near-by-matches {
+            padding-left: 0px;
+            @media (min-width: @minTablet) {
+                padding-left: 20px;
+            }
+            .heading {
+                border-bottom: 1px solid #111;
+                font-weight: bold;
+                font-size: 18px;
+                color: #355f90;
+            }
+        }
+    }
+}

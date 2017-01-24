@@ -1,0 +1,55 @@
+<div class="lead-form">
+    <form name="userForm" novalidate class="clearfix" ng-submit="leadFormCtrl.sendMessage(userForm, leadFormCtrl.closeModal)">
+        <div class="clearfix">
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.fname.$invalid && (userForm.fname.$dirty || userForm.$submitted) }">
+                <input type="text" class="form-control" name="fname" ng-model="fname" required placeholder="Firstname *" />
+                <span class="error-msg">Please enter Firstname</span>
+            </div>
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.lname.$invalid && (userForm.lname.$dirty || userForm.$submitted) }">
+                <input type="text" class="form-control" name="lname" ng-model="lname" required placeholder="Lastname *" />
+                <span class="error-msg">Please enter Lastname</span>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.email.$invalid && (userForm.email.$dirty || userForm.$submitted) }">
+                <input type="email" class="form-control" name="email" ng-model="email" required placeholder="Email Address *" />
+                <span class="error-msg">Please enter valid email address</span>
+            </div>
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.phone.$invalid && (userForm.phone.$dirty || userForm.$submitted) }">
+                <input type="text" ng-keyup="leadFormCtrl.onlyNumbers()" class="form-control" name="phone" ng-model="phone" required placeholder="Phone Number *" />
+                <span class="error-msg">Please enter Phone number</span>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.arrivaldate.$invalid && (userForm.arrivaldate.$dirty || userForm.$submitted) }">
+                <input type="text" class="form-control" name="arrivaldate" ng-model="arrivaldate" required placeholder="Arrival Date *" />
+                <a class="icon-cal" ng-click="leadFormCtrl.focus('arrivaldate')"><span class="glyphicon glyphicon-calendar"></span></a>
+                <span class="error-msg">Please enter Arrival Date</span>
+            </div>
+            <div class="form-group col-md-6 col-sm-6" ng-class="{ 'has-error': userForm.departuredate.$invalid && (userForm.departuredate.$dirty || userForm.$submitted) }">
+                <input type="text" class="form-control" name="departuredate" ng-model="departuredate" required placeholder="Departure Date *" />
+                <a class="icon-cal" ng-click="leadFormCtrl.focus('departuredate')"><span class="glyphicon glyphicon-calendar"></span></a>
+                <span class="error-msg">Please enter Departure Date</span>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="form-group col-md-6 col-sm-6">
+                <select class="form-control" name="bedrooms">
+                    <option>Bedrooms Needed</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12 col-sm-12">
+            <textarea class="form-control" rows="5" name="comment" id="comment" placeholder="Please tell us about your stay (Desired Location, Reason for Stay, Pets, Budget)"></textarea>
+        </div>
+        <div class="form-group col-md-12 col-sm-12 text-center">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+        </div>
+    </form>
+</div>

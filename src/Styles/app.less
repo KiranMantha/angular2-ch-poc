@@ -1,0 +1,95 @@
+
+@import '~bootstrap-less/bootstrap/index';
+@import 'lib/display-flex';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-container {
+    .display-flex();
+    .flex-direction(column);
+}
+
+.flex-row {
+    .display-flex();
+    .flex-direction(row);
+}
+
+.flex-column {
+    .display-flex();
+    .flex-direction(column);
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.mask {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.5;
+    display: none;
+}
+
+.navigation-container {
+    .leftside-mainmenu {
+        float: left;
+        width: 0px;
+        overflow: hidden;
+        ul {
+            font-size: 18px;
+            padding: 30px 0;
+            li {
+                border-bottom: 1px solid #333;
+                a {
+                    color: #bbb;
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    display: block;
+                    &:hover {
+                        background-color: #bbb;
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.global-header {
+    .flex(30px);
+}
+
+.main-section {
+    .flex(auto, 1, 1);
+}
+
+.is-animate {
+    transition: all 0.28s linear;
+}
+
+.is-animate-2 {
+    transition: all 5s linear;
+}
+
+@import 'lib/margins';
+@import 'lib/paddings';
+@import 'global-header';
+@import 'search-bar';
+@import 'bread-crumbs';
+@import 'property-description';
+@import 'feature-properties';
+@import 'layout-results';
+@import 'search-result';
+@import 'global-footer';
+@import 'lead-form';

@@ -1,0 +1,73 @@
+<div class="layout-results ">
+    <div class="container clearfix">
+        <div class="left-content">
+            <div class="city-info">
+                <h3>City Informaion</h3>
+                <div class="city-information-list border-me p15">
+                    <div class="info-item" ng-repeat="infoItem in layoutResultsCtrl.cityInformation">
+                        <div class="info-heading">{{ infoItem.Heading}}</div>
+                        <div class="info-content" ng-bind-html="infoItem.Content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Additional-locations">
+                <h3>Additional Locations</h3>
+                <div ng-class="{ 'collapsed': additionalItem.IsCollapsed }" class="additional-locations-panel m15-btm" ng-repeat="additionalItem in layoutResultsCtrl.additionalLocations">
+                    <div class="collapsable-panel border-me">
+                        <div class="heading p10" ng-click="additionalItem.IsCollapsed = !additionalItem.IsCollapsed;">
+                            {{ additionalItem.Heading}}
+                            <span class="glyphicon glyphicon-plus pull-right"></span>
+                            <span class="glyphicon glyphicon-minus pull-right"></span>
+                        </div>
+                        <div class="content-to-collapse is-animate-2">
+                            <ul class="p10">
+                                <li ng-repeat="linkItem in additionalItem.Lists" class="m5-top m5-btm">
+                                    <a href="{{linkItem.url}}">{{ linkItem.displayText}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-content m10-top">
+            <div class="clearfix">
+                <div class="pull-right">
+                    Showing 1 - {{layoutResultsCtrl.properties.length}} of {{layoutResultsCtrl.properties.length}} properties found
+                </div>
+            </div>
+            <div class="exact-matches p20 p0-right">
+                <div class="heading m10-btm p5" ng-if="layoutResultsCtrl.exactMatches.length > 0">
+                    Exact Matches
+                </div>
+                <div class="search-item" ng-repeat="(iKey,searchResult) in layoutResultsCtrl.exactMatches">
+                    <search-result data="searchResult" key="iKey" open-modal="layoutResultsCtrl.openModal(modalId, modalData)"></search-result>
+                </div>
+            </div>
+            <div class="near-by-matches p20 p0-right">
+                <div class="heading m10-btm p5" ng-if="layoutResultsCtrl.nearbyProperties.length > 0">
+                    Nearby Properties
+                </div>
+                <div class="search-item" ng-repeat="(iKey,searchResult) in layoutResultsCtrl.nearbyProperties">
+                    <search-result data="searchResult" key="iKey" open-modal="layoutResultsCtrl.openModal(modalId, modalData)"></search-result>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resultsModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Check Availability</h4>
+                    <div>or Call <a href="tel:{{modalData.phone}}">{{layoutResultsCtrl.modalData.phone}}</a></div>
+                </div>
+                <div class="modal-body">
+                    <lead-form close-modal="layoutResultsCtrl.closeModal(modalId)" modal-id="resultsModal"></lead-form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+.global-header {
+    box-shadow: 1px 1px 4px black;
+    /*.menu-link {
+        margin-top: 17px;
+        .logo {
+            font-size: 30px;
+
+        }
+    }*/
+
+    height: 50px;
+    .menu-link {
+        height: 100%;
+        width: 50px;
+        font-size: 30px;
+        float: left;
+        padding-top: 6px;
+    }
+    .menu-logo {
+        height: 50px;
+        background-image: url('https://www.corporatehousing.com/images/logo.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: contain;
+    }
+    @media (min-width: 768px) {
+        .top-mainmenu {
+            ul {
+                list-style: none;
+                margin-top: 15px;
+                li {
+                    float: left;
+                    margin-left: 20px;
+                    a {
+                        text-decoration: none;
+                        color: #50504F;
+                        &:hover {
+                            color: #0066CD;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ 
+
+
+html.expand-leftmenu {
+    body {
+        overflow-x: hidden;
+    }
+    .mask {
+        display: block;
+    }
+    .navigation-container{
+        .leftside-mainmenu {
+           width: calc(~"100% - 60px");
+           position: fixed;
+           height: 100%;
+           background-color: #454545;
+        }
+        .page.flex-container {
+            left: calc(~"100% - 60px");
+            width: 100%;
+            position: absolute;
+        }
+    }
+    @media (min-width: 768px) { 
+        body {
+            overflow: auto;
+            .mask {
+                display: none;
+            }
+             .navigation-container{
+                .leftside-mainmenu {
+                    width: calc(~"100% - 60px");
+                    position: fixed;
+                    height: 100%;
+                    background-color: #454545;
+                    display: none;
+                }
+                .page.flex-container {
+                    left: 0;
+                    width: 100%;
+                    position: inherit;
+                }
+            }
+        }
+    }
+}
