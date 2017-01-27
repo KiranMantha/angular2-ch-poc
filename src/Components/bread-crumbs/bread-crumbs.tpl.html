@@ -1,9 +1,9 @@
 <div class="bread-crumbs">
     <div class="container">
         <ul class="clearfix">
-            <li *ngFor="let link of links">
-                <a ng-hide="$last" href="{{ link.url }}">{{ link.displayText}}</a>
-                <span ng-show="$last">{{ link.displayText}}</span>
+            <li *ngFor="let link of links; let i = last;">
+                <a *ngIf="!i" [routerLink]="link.url">{{ link.displayText}}</a>
+                <span *ngIf="i">{{ link.displayText}}</span>
             </li>
         </ul>
     </div>

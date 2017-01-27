@@ -12,7 +12,8 @@ import { StatePageModule } from './Pages/state-page'
 import { MainComponent } from './Components/app/app-component';
 import { routes } from './Routes/Route'
 
-import {propertySrv} from './Services/property-service';
+import { propertySrv } from './Services/property-service';
+import { utilSrv } from './Services/util-service'
 
 @NgModule({
     bootstrap: [MainComponent],
@@ -28,6 +29,6 @@ import {propertySrv} from './Services/property-service';
         GlobalFooterModule,
         StatePageModule
     ],
-    providers:[propertySrv]
+    providers: [propertySrv, utilSrv]
 })
 export class MainModule { }

@@ -22,23 +22,22 @@ export class SearchBar implements AfterViewInit {
             .map(term => term.length < 2 ? []
                 : this._propertySrv.getSearchResults(term));
 
-    public formatter = (result: {}) => result.displayText;
+    public formatter = (result: { [key: string]: string }) => result.displayText;
 
     private titleCase(string: string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     private handleSubmit() {
-        console.log('make submit', this.searchText);
         this._router.navigateByUrl(this.searchText.url);
     };
 
 
 
-    public submitQuery(searchForm) {
+    public submitQuery(searchForm: { [key: string]: any }) {
         this.handleSubmit();
     }
 
-    public onSelect($event) {
+    public onSelect($event: { [key: string]: any }) {
         this.searchText = $event.item;
         this.handleSubmit();
     }

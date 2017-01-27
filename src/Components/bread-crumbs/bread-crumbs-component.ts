@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'bread-crumb',
+    selector: 'bread-crumbs',
     template: require('./bread-crumbs.tpl.html')
 })
 export class BreadCrumbs implements AfterViewInit {

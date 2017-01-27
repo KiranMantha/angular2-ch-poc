@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { PropertyDescription } from './property-description-component'
+import { PropertyDescription } from './property-description-component';
+
 @NgModule({
     declarations: [PropertyDescription],
     exports: [PropertyDescription]

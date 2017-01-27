@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DialogService } from '../Components/dialog/dialog.service';
 
 @Injectable()
 export class utilSrv {
-    constructor(private _dialogService: DialogService) {
+    constructor() {
 
     }
     private returnParams(srcParams: Array<any>, dstParams: Array<any>): Object {
@@ -52,7 +51,6 @@ export class utilSrv {
         //     }],
         //     backdrop: 'static'
         // });
-        this._dialogService.create()
     };
 }
 

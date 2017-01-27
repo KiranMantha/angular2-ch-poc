@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, Input, ElementRef, Inject } from '@angular/core';
 import { utilSrv } from '../../Services/util-service';
 
 @Component({
@@ -6,8 +6,8 @@ import { utilSrv } from '../../Services/util-service';
     template: require('./feature-properties-component.tpl.html')
 })
 export class FeatureProperties implements AfterViewInit {
-    @Input() properties: any;
-    constructor(private _elementRef: ElementRef, private _utilSrv: utilSrv) {
+    @Input() properties: Array<{ [key: string]: any }>;
+    constructor(private _elementRef: ElementRef, @Inject(utilSrv) private _utilSrv: utilSrv) {
 
     }
     public testContent: string = 'tet';

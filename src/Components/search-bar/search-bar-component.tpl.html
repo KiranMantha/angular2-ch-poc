@@ -9,6 +9,7 @@
                         (selectItem)="onSelect($event)"
                         class="form-control" name='txtSearch'
                         placeholder="City, ST or Zip" [(ngModel)]="searchText.displayText" required />
+                    <span *ngIf="searchText.displayText===''" class="error-msg p5-left">Please enter City and State, or Zip.</span>
                     <a class="search-icon-link" (click)="submitQuery(searchForm)">
                         <span class="glyphicon glyphicon-search"></span>
                     </a>

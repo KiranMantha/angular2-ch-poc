@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable()
 export class propertySrv {
-    constructor(private _activatedRouter: ActivatedRoute) {
+    constructor(private _Router: Router) {
 
     }
     private properties = [{
@@ -949,30 +949,32 @@ export class propertySrv {
         return urlToReturn.replace(/\/\//g, '/').replace(/ /g, '-').toLowerCase();
     };
 
-    public getProperties(): Array<any> {
+    public getProperties(): Array<{ [key: string]: any }> {
         return this.properties;
     };
 
-    public getBreadcrumbs(): Array<any> {
-        var breadCrumbs = [],
+    public getBreadcrumbs(): Promise<Array<{ [key: string]: string }>> {
+        let breadCrumbs: Array<{ [key: string]: string }> = [],
             prevUrl = '';
-        if (this._activatedRouter.$$url) {
-            var links = this._activatedRouter.$$url.split('/');
-            for (var i = 0; i < links.length; i++) {
-                prevUrl = prevUrl + (i == 0 ? '' : links[i]) + '/';
-                breadCrumbs.push({
-                    url: prevUrl,
-                    displayText: (i == 0 ? 'Corporate Housing' : links[i])
-                })
-            }
-        }
-        return breadCrumbs;
+        return new Promise((resolve, reject) => {
+            this._Router.events.subscribe((event: NavigationEnd) => {
+                let links = event.url.split('/');
+                for (var i = 0; i < links.length; i++) {
+                    prevUrl = prevUrl + (i == 0 ? '' : links[i]) + '/';
+                    breadCrumbs.push({
+                        url: prevUrl,
+                        displayText: (i == 0 ? 'Corporate Housing' : links[i])
+                    })
+                }
+                resolve(breadCrumbs);
+            });
+        });
     };
 
-    public getSearchResults(searchText: string): Array<any> {
+    public getSearchResults(searchText: string): Array<{ [key: string]: string }> {
         let joinUrl = this.joinUrl;
         let results = this.properties.reduce(function (a, b) {
-            var arr = [];
+            let arr = [];
             if (a.length > 0) {
                 if (a.filter(function (x) { x.displayText.toString().indexOf(b.zip.toString()) === 0 }).length === 0) {
                     arr.push({ displayText: b.zip, url: joinUrl(b.county, b.state, b.city, b.zip) });
